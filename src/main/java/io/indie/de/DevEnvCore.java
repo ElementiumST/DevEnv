@@ -1,17 +1,32 @@
 package io.indie.de;
 
+import io.indie.de.features.polls.IPollsService;
+import io.indie.de.features.polls.PollsService;
+import io.indie.de.features.util.Utils;
 import org.bukkit.plugin.java.JavaPlugin;
 
+
 public final class DevEnvCore extends JavaPlugin {
+    private IPollsService pollsService;
 
     @Override
     public void onEnable() {
-        // Plugin startup logic
+        initUtilModules();
+        initServices();
 
     }
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        pollsService.disable();
+    }
+
+    private void initUtilModules() {
+        Utils.getInstance().attachJavaPluginInstance(this);
+    }
+
+    private void initServices() {
+        pollsService = new PollsService();
+        pollsService.initialize();
     }
 }
