@@ -1,0 +1,12 @@
+name: DevEnv
+version: '${project.version}'
+main: io.indie.de.DevEnvCore
+api-version: 1.18
+prefix: TODO
+load: STARTUP
+loadbefore: [ TODO ]
+depend: [ TODO ]
+softdepend: [ TODO ]
+authors: [ El_STARK ]
+description: Dev environment for spigot/bukkit core
+website: TODO
